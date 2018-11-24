@@ -44,9 +44,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
         buttonNext.setOnClickListener(this);
         buttonClean.setOnClickListener(this);
 
-        Bundle arguments = getIntent().getExtras();
-        String date = arguments.get("date").toString();
-        showDate = (TextView)findViewById(R.id.show_date);
+      Bundle arguments = getIntent().getExtras();
+      String date = arguments.get("dateStr").toString();
+
+       // String date = arguments.get("date").toString();
+       showDate = (TextView)findViewById(R.id.show_date);
+       // showDate.setText(date);
         showDate.setText(date);
     }
 
