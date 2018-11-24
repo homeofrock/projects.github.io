@@ -18,6 +18,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     Button buttonDeMult;
     Button buttonRoot;
     double res = 0;
+    TextView showDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,12 +27,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
         textView = (TextView) findViewById(R.id.textVresult);
         enterNum1 = (EditText) findViewById(R.id.enterNum1);
         enterNum2 = (EditText) findViewById(R.id.enterNum2);
-        Button buttonSum = (Button) findViewById(R.id.buttonSum);
-        Button buttonMin = (Button) findViewById(R.id.buttonMin);
-        Button buttonMult = (Button) findViewById(R.id.buttonMult);
-        Button buttonPow =  (Button) findViewById(R.id.buttonPow);
-        Button buttonDeMult = (Button) findViewById(R.id.buttonDeMult);
-        Button buttonRoot = (Button) findViewById(R.id.buttonRoot);
+        buttonSum = (Button) findViewById(R.id.buttonSum);
+        buttonMin = (Button) findViewById(R.id.buttonMin);
+        buttonMult = (Button) findViewById(R.id.buttonMult);
+        buttonPow =  (Button) findViewById(R.id.buttonPow);
+        buttonDeMult = (Button) findViewById(R.id.buttonDeMult);
+        buttonRoot = (Button) findViewById(R.id.buttonRoot);
         Button buttonNext = (Button) findViewById(R.id.buttonGetRes);
         Button buttonClean = (Button) findViewById(R.id.buttonDellAll);
         buttonSum.setOnClickListener(this);
@@ -42,6 +43,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
         buttonRoot.setOnClickListener(this);
         buttonNext.setOnClickListener(this);
         buttonClean.setOnClickListener(this);
+
+        Bundle arguments = getIntent().getExtras();
+        String date = arguments.get("date").toString();
+        showDate = (TextView)findViewById(R.id.show_date);
+        showDate.setText(date);
     }
 
     @Override
