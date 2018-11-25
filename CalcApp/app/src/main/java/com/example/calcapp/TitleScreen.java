@@ -47,13 +47,18 @@ public class TitleScreen extends AppCompatActivity {
     public void setCurrentDateOnView(){
         final Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
-        int mounth = calendar.get(Calendar.MONTH);
+        int mounth = calendar.get(Calendar.MONTH) + 1;
         int day = calendar.get(Calendar.DAY_OF_MONTH);
-         datePicker.init(year, mounth, day, null);
+         datePicker.init(year, mounth, day,    null);
+         Intent inSetDate  = new Intent(this,MainActivity.class);
+         inSetDate.putExtra("num",(day + ":" + mounth + ":" + year).toString());
+         startActivity(inSetDate);
     }
 
     protected void clickStart(View view){
         getDate = (EditText) findViewById(R.id.get_date);
+        if(getDate.getText().equals(""))
+            getDate.setText(" ");
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra("date",getDate.getText().toString());
         startActivity(intent);
